@@ -1,26 +1,78 @@
 @import "tailwindcss";
+@import 'swiper/css';
+@import 'swiper/css/navigation';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+@theme {
+  /* Colores primarios (verde) */
+  --color-primary-100: #00DB12;
+  --color-primary-200: #1DB12A;
+  --color-primary-300: #2D8634;
+  --color-primary-400: #2E5C32;
+
+  /* Colores secundarios (rojo) */
+  --color-secondary-100: #DC002E;
+  --color-secondary-200: #B11D3D;
+  --color-secondary-300: #862D40;
+  --color-secondary-300-op-95: rgba(134, 45, 64, 0.95);
+  --color-secondary-400: #5C2E38;
+
+  --shadow-strong: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* SLIDERS CATEGORY SLIDER */
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.slider-category .swiper-button-next,
+.slider-category .swiper-button-prev {
+  width: 2.2rem !important;
+  height: 2.2rem !important;
+  aspect-ratio: 1 / 1 !important;
+  padding: 0 !important;
+  border-radius: 9999px !important;
+  top: 1.65rem !important;
+  transform: translateY(0) !important; 
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.slider-category .swiper-button-prev {
+  left: -2.5rem !important;
+}
+
+.slider-category .swiper-button-next {
+  right: -1rem !important;
+}
+
+.slider-category .swiper-button-next svg,
+.slider-category .swiper-button-prev svg {
+  width: 70% !important;
+}
+
+/* SLIDERS POPULAR COURSES */
+
+.popular-button-next,
+.popular-button-prev {
+  width: 3rem !important;
+  height: 3rem !important;
+  aspect-ratio: 1 / 1 !important;
+  padding: 0 !important;
+  border-radius: 9999px !important;
+  top: 10rem !important;
+  transform: translateY(0) !important; 
+}
+
+.popular-button-prev {
+  left: 1rem !important;
+}
+
+.popular-button-next {
+  right: -0.3rem !important;
+}
+
+.popular-button-next svg,
+.popular-button-prev svg {
+  width: 70% !important;
 }
