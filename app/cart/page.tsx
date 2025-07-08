@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import Modal from "@/components/ui/Modal";
+import Image from "next/image";
 
 export default function CartPage() {
   const { cart, removeFromCart, clearCart } = useCartStore();
@@ -40,13 +41,13 @@ export default function CartPage() {
 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-gray-100 max-w-6xl mx-auto py-10 px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-      
+
       {/* Sección izquierda: Lista de cursos */}
       <section className="md:col-span-2 bg-white rounded-xl p-6 shadow-strong">
         <h1 className="text-3xl font-bold mb-6 text-secondary-400 border-b border-b-gray-500 pb-3">
-            {user.name}'s Cart
+          {user.name}&apos;s Cart
         </h1>
-        
+
         {cart.length === 0 ? (
           <p>No courses in cart. <Link href="/allcourses" className="text-primary-300 underline">Browse Courses</Link></p>
         ) : (
@@ -68,7 +69,13 @@ export default function CartPage() {
                     >
                       <Trash2 className="w-5 h-5" />
                     </button>
-                    <img src={course.pic} alt={course.title} className="h-14 object-cover rounded" />
+                    <Image
+                      src={course.pic}
+                      alt={course.title}
+                      width={56}
+                      height={56}
+                      className="object-cover rounded"
+                    />
                     <p className="font-semibold text-gray-800">{course.title}</p>
                   </div>
                   <p className="text-primary-300 font-semibold">
@@ -91,7 +98,7 @@ export default function CartPage() {
       {/* Sección derecha: Resumen */}
       <section className="bg-white rounded-xl p-6 shadow-strong">
         <h2 className="text-2xl font-bold mb-4 text-secondary-400 border-b border-b-gray-500 pb-3">
-            Order Summary
+          Order Summary
         </h2>
 
         <div className="space-y-2">
@@ -129,7 +136,7 @@ export default function CartPage() {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className="text-center p-6">
-            <h2 className="text-2xl font-bold text-secondary-400 mb-4">You're subscribed!</h2>
+            <h2 className="text-2xl font-bold text-secondary-400 mb-4">You&apos;re subscribed!</h2>
             <p className="text-gray-700 mb-6">
               Your selected courses have been added to your profile. You can now start learning!
             </p>

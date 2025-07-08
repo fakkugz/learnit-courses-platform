@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 type Testimonial = {
@@ -52,13 +53,15 @@ export default function TestimonialsSlider() {
             key={t.id}
             className="w-full max-w-2xl bg-white rounded-2xl shadow-strong p-10 text-center"
           >
-            <img
+            <Image
               src={t.avatar}
               alt={t.name}
-              className="w-24 h-24 rounded-full mx-auto mb-5"
+              width={96}
+              height={96}
+              className="rounded-full mx-auto mb-5"
             />
             <p className="text-xl font-bold text-primary-300">{t.name}</p>
-            <p className="text-lg text-gray-700 mt-4 leading-relaxed">"{t.message}"</p>
+            <p className="text-lg text-gray-700 mt-4 leading-relaxed">&quot;{t.message}&quot;</p>
           </div>
         ))}
       </div>

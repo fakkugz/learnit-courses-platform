@@ -37,7 +37,7 @@ export async function getUserFromCookie() {
       favorites: user.favorites ?? [],
       subscriptions: user.subscriptions ?? [],
     };
-  } catch (e) {
+  } catch {
     return null;
   }
 }

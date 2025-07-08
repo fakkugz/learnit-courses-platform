@@ -100,7 +100,7 @@ export default function ProfilePage() {
                         ))}
                     </div>
                 ) : (
-                    <p className="text-gray-500">You haven't subscribed to any courses yet.</p>
+                    <p className="text-gray-500">You haven&apos;t subscribed to any courses yet.</p>
                 )}
             </section>
 
@@ -141,7 +141,7 @@ export default function ProfilePage() {
                         }}
                         className="py-6 px-2"
                     >
-                        {courses.map((course) => (
+                        {favoriteCourses.map((course) => (
                             <SwiperSlide key={course.id}>
                                 <CourseCard
                                     course={course}
