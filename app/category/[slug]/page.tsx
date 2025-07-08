@@ -4,7 +4,6 @@ import Pagination from "@/components/Pagination";
 import { Course } from "@/components/CourseCard";
 
 function deslugify(slug: string) {
-  // Decodifica URL, reemplaza guiones por espacios, limpia espacios extra
   return decodeURIComponent(slug).replace(/-/g, " ").trim();
 }
 
@@ -18,7 +17,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   const categoryName = deslugify(params.slug).toLowerCase();
 
   const filtered = data.filter(
-    course => course.category.toLowerCase() === categoryName
+    (course) => course.category.toLowerCase() === categoryName
   );
 
   const currentPage = parseInt(searchParams?.page ?? "1", 10);
