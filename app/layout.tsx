@@ -18,12 +18,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-100">
-        <Navbar/>
-        <Suspense fallback={<div>Cargando...</div>}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Navbar />
           {children}
+          <Toaster position="bottom-right" reverseOrder={false} />
+          <Footer />
         </Suspense>
-        <Toaster position="bottom-right" reverseOrder={false} />
-        <Footer/>
       </body>
     </html>
   );
