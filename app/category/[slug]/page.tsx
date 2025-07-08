@@ -13,7 +13,7 @@ export default async function CategoryPage({
   searchParams,
 }: {
   params: { slug: string };
-  searchParams: { page?: string };
+  searchParams?: { page?: string };
 }) {
   const data: Course[] = await getCourses();
   const categoryName = deslugify(params.slug).toLowerCase();
@@ -22,7 +22,7 @@ export default async function CategoryPage({
     course => course.category.toLowerCase() === categoryName
   );
 
-  const currentPage = parseInt(searchParams.page || "1", 10);
+  const currentPage = parseInt(searchParams?.page ?? "1", 10);
   const perPage = 6;
   const totalPages = Math.ceil(filtered.length / perPage);
   const start = (currentPage - 1) * perPage;
