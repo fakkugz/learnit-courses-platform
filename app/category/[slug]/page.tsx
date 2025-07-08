@@ -8,13 +8,10 @@ function deslugify(slug: string) {
 }
 
 
-export default async function CategoryPage({
-  params,
-  searchParams,
-}: {
-  params: { slug: string };
-  searchParams?: { page?: string };
-}) {
+export default async function CategoryPage(
+  props: Promise<{ params: { slug: string }; searchParams?: { page?: string } }>
+) {
+  const { params, searchParams } = await props;
   const data: Course[] = await getCourses();
   const categoryName = deslugify(params.slug).toLowerCase();
 
