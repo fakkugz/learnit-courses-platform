@@ -41,3 +41,17 @@ export default async function CategoryPage({ params, searchParams }: Props) {
     </main>
   );
 }
+
+export async function generateStaticParams() {
+  const courses = await getCourses();
+
+  const uniqueCategories = Array.from(
+    new Set(
+      courses.map((c) =>
+        c.category.toLowerCase().replace(/\s+/g, "-")
+      )
+    )
+  );
+
+  return uniqueCategories.map((slug) => ({ slug }));
+}
