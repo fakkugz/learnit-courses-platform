@@ -8,13 +8,12 @@ function deslugify(slug: string) {
   return decodeURIComponent(slug).replace(/-/g, " ").trim();
 }
 
-export default async function CategoryPage({
-  params,
-  searchParams,
-}: {
+type Props = {
   params: { slug: string };
   searchParams?: { page?: string };
-}) {
+};
+
+export default async function CategoryPage({ params, searchParams }: Props) {
   const data: Course[] = await getCourses();
   const categoryName = deslugify(params.slug).toLowerCase();
 
