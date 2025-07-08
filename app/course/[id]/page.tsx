@@ -3,9 +3,11 @@ import { Course } from "@/components/CourseCard";
 import CourseDetail from "@/components/CourseDetail";
 
 export default async function CoursePage(
-  props: Promise<{ params: { id: string } }>
+  props: {
+    params: Promise<{ id: string }>
+  }
 ) {
-  const { params } = await props; 
+  const params = await props.params; 
   const courses: Course[] = await getCourses();
   const course = courses.find((c) => c.id === params.id);
 
