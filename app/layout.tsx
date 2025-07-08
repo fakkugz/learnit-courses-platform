@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "./components/Footer";
 import { Toaster } from 'react-hot-toast';
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "LearnIt | Your Gateway to Knowledge",
@@ -18,7 +19,9 @@ export default async function RootLayout({
     <html lang="en">
       <body className="bg-gray-100">
         <Navbar/>
-        {children}
+        <Suspense fallback={<div>Cargando...</div>}>
+          {children}
+        </Suspense>
         <Toaster position="bottom-right" reverseOrder={false} />
         <Footer/>
       </body>
