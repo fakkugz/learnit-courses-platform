@@ -19,25 +19,25 @@ export default function TestimonialsSlider() {
       {
         id: 1,
         name: 'Jane Smith',
-        avatar: 'https://randomuser.me/api/portraits/women/1.jpg',
+        avatar: '/avatars/2.jpg',
         message: 'LearnIt helped me level up my frontend skills in weeks!',
       },
       {
         id: 2,
         name: 'Carlos Gonzalez',
-        avatar: 'https://randomuser.me/api/portraits/men/22.jpg',
+        avatar: '/avatars/9.jpg',
         message: 'Great variety of free courses. Very useful and updated.',
       },
       {
         id: 3,
         name: 'Amina Yusuf',
-        avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
+        avatar: '/avatars/44.jpg',
         message: 'Excellent platform. Highly recommended for beginners!',
       },
       {
         id: 4,
         name: 'John Doe',
-        avatar: 'https://randomuser.me/api/portraits/men/5.jpg',
+        avatar: '/avatars/22.jpg',
         message: 'I found exactly what I needed to start a new career.',
       },
     ];
