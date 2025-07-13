@@ -107,53 +107,58 @@ export default function ProfilePage() {
             {/* Favorites */}
             <section className="bg-white rounded-xl p-6 shadow-strong">
                 <h2 className="text-2xl text-secondary-400 font-bold mb-4">Favorite Courses</h2>
-                <section className="relative">
-                    {/* Botones personalizados */}
-                    <button
-                        className="favorites-button-prev absolute -left-4 top-1/2 -translate-y-1/2 z-10
-                            bg-white border border-secondary-400 hover:bg-secondary-200 transition-colors
-                            rounded-full shadow flex items-center justify-center w-10 h-10 cursor-pointer"
-                    >
-                        <ChevronLeft className="w-6 h-6 text-secondary-400 hover:text-white transition-colors cursor-pointer" />
-                    </button>
 
-                    <button
-                        className="favorites-button-next absolute -right-4 top-1/2 -translate-y-1/2
-                            z-10 bg-white border border-secondary-400 hover:bg-secondary-200 transition-colors
-                            rounded-full shadow flex items-center justify-center w-10 h-10 cursor-pointer"
-                    >
-                        <ChevronRight className="w-6 h-6 text-secondary-400 hover:text-white transition-colors cursor-pointer" />
-                    </button>
+                {favoriteCourses.length ? (
+                    <section className="relative">
+                        {/* Botones personalizados */}
+                        <button
+                            className="favorites-button-prev absolute -left-4 top-1/2 -translate-y-1/2 z-10
+          bg-white border border-secondary-400 hover:bg-secondary-200 transition-colors
+          rounded-full shadow flex items-center justify-center w-10 h-10 cursor-pointer"
+                        >
+                            <ChevronLeft className="w-6 h-6 text-secondary-400 hover:text-white transition-colors cursor-pointer" />
+                        </button>
 
-                    {/* Slider */}
-                    <Swiper
-                        modules={[Navigation]}
-                        navigation={{
-                            nextEl: '.favorites-button-next',
-                            prevEl: '.favorites-button-prev',
-                        }}
-                        spaceBetween={16}
-                        slidesPerView={1}
-                        breakpoints={{
-                            640: { slidesPerView: 1.2 },
-                            768: { slidesPerView: 2.2 },
-                            1024: { slidesPerView: 3.2 },
-                        }}
-                        className="py-6 px-2"
-                    >
-                        {favoriteCourses.map((course) => (
-                            <SwiperSlide key={course.id}>
-                                <CourseCard
-                                    course={course}
-                                    showDescription={false}
-                                    showFooter={false}
-                                    showCategoryInfo={false}
-                                    minicard={true}
-                                />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </section>
+                        <button
+                            className="favorites-button-next absolute -right-4 top-1/2 -translate-y-1/2
+          z-10 bg-white border border-secondary-400 hover:bg-secondary-200 transition-colors
+          rounded-full shadow flex items-center justify-center w-10 h-10 cursor-pointer"
+                        >
+                            <ChevronRight className="w-6 h-6 text-secondary-400 hover:text-white transition-colors cursor-pointer" />
+                        </button>
+
+                        {/* Slider */}
+                        <Swiper
+                            modules={[Navigation]}
+                            navigation={{
+                                nextEl: '.favorites-button-next',
+                                prevEl: '.favorites-button-prev',
+                            }}
+                            spaceBetween={16}
+                            slidesPerView={1}
+                            breakpoints={{
+                                640: { slidesPerView: 1.2 },
+                                768: { slidesPerView: 2.2 },
+                                1024: { slidesPerView: 3.2 },
+                            }}
+                            className="py-6 px-2"
+                        >
+                            {favoriteCourses.map((course) => (
+                                <SwiperSlide key={course.id}>
+                                    <CourseCard
+                                        course={course}
+                                        showDescription={false}
+                                        showFooter={false}
+                                        showCategoryInfo={false}
+                                        minicard={true}
+                                    />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </section>
+                ) : (
+                    <p className="text-gray-500">You haven&apos;t added any favorites yet.</p>
+                )}
             </section>
         </main>
     );
